@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swasthya Setu Solutions | Inclusive Wellness Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+        .chatbot-container {
+            transition: all 0.3s ease;
+            transform: translateY(100%);
+        }
+        .chatbot-container.open {
+            transform: translateY(0);
+        }
+        #moodChart {
+            height: 300px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-primary-50 to-primary-100 min-h-screen font-sans text-gray-700">
+    <!-- Navigation -->
+    <nav class="glassmorphism fixed w-full z-10 py-4 px-6 rounded-b-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <span class="text-xl font-semibold text-primary-800">Swasthya Setu Solutions</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#features" class="text-primary-700 hover:text-primary-500 transition">Features</a>
+                <a href="#assessment" class="text-primary-700 hover:text-primary-500 transition">Self-Assessment</a>
+                <a href="#resources" class="text-primary-700 hover:text-primary-500 transition">Resources</a>
+                <a href="#testimonials" class="text-primary-700 hover:text-primary-500 transition">Testimonials</a>
+                <a href="#journal" class="text-primary-700 hover:text-primary-500 transition">Journal</a>
+            </div>
+            <button id="chatbotToggle" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-full shadow-md transition flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                Wellness Chat
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary-800 mb-6">Inclusive Wellness for <span class="text-secondary-600">Diverse Needs</span></h1>
+                    <p class="text-lg text-gray-600 mb-8">Traditional programs often fail to address unique physical and mental health needs. Our adaptable solution delivers measurable improvements to overall wellbeing in workplaces and care homes.</p>
+                    <div class="flex space-x-4">
+                        <a href="#assessment" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-full shadow-md transition">Take Assessment</a>
+                        <a href="#features" class="border border-primary-500 text-primary-600 hover:bg-primary-50 px-6 py-3 rounded-full shadow-md transition">Learn More</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="glassmorphism w-64 h-64 rounded-2xl absolute -top-6 -left-6"></div>
+                        <div class="glassmorphism w-64 h-64 rounded-2xl absolute -bottom-6 -right-6"></div>
+                        <img src="https://images.unsplash.com/photo-1498758536662-35b82cd15e29?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Wellness" class="relative z-10 w-80 h-80 object-cover rounded-2xl shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 bg-white bg-opacity-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-primary-800 mb-4">Advanced Wellness Features</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Our platform leverages cutting-edge technology to provide personalized support for mental and physical wellbeing.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glassmorphism p-6 rounded-xl">
+                    <div class="bg-primary-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary-800 mb-2">AI-Powered Chatbot</h3>
+                    <p class="text-gray-600">Our intelligent chatbot detects stress and anxiety patterns through conversation analysis, providing immediate support and resources.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="glassmorphism p-6 rounded-xl">
+                    <div class="bg-primary-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary-800 mb-2">Mood Tracking</h3>
+                    <p class="text-gray-600">Visualize your emotional patterns with our 7-day mood tracker, helping you identify trends and triggers in your wellbeing.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="glassmorphism p-6 rounded-xl">
+                    <div class="bg-primary-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary-800 mb-2">Personalized Resources</h3>
+                    <p class="text-gray-600">Automatically receive tailored mental and physical health resources based on your assessment results and chatbot interactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Self Assessment Section -->
+    <section id="assessment" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" style="padding-right: 30px";>
+                    <h2 class="text-3xl font-bold text-primary-800 mb-4">Wellness Self-Assessment</h2>
+                    <p class="text-gray-600 mb-6">Our dynamic assessment adapts to your needs with randomly selected questions to evaluate your current mental and physical wellbeing.</p>
+                    
+                    <div id="assessmentContainer" class="glassmorphism p-6 rounded-xl">
+                        <div id="assessmentIntro">
+                            <p class="mb-4">This 5-question assessment will help us understand your current state of wellbeing. Answer honestly to receive the most accurate results and recommendations.</p>
+                            <button id="startAssessment" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-full shadow-md transition">Begin Assessment</button>
+                        </div>
+                        <div id="assessmentQuestions" class="hidden">
+                            <div id="questionContainer" class="mb-6"></div>
+                            <div id="optionsContainer" class="space-y-3 mb-6"></div>
+                            <button id="nextQuestion" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-full shadow-md transition">Next Question</button>
+                        </div>
+                        <div id="assessmentResults" class="hidden">
+                            <h3 class="text-xl font-semibold mb-4">Your Assessment Results</h3>
+                            <div id="severityLevel" class="mb-4"></div>
+                            <div id="resourceSuggestions" class="space-y-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold text-primary-800 mb-4">Your Mood Tracker</h3>
+                    <p class="text-gray-600 mb-6">Visualize your emotional journey over the past week to identify patterns and trends in your wellbeing.</p>
+                    <div class="glassmorphism p-6 rounded-xl">
+                        <canvas id="moodChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 px-6 bg-white bg-opacity-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-primary-800 mb-4">Mental & Physical Health Resources</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Curated resources tailored to support your unique wellbeing needs.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Mental Health Resources -->
+                <div class="glassmorphism p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold text-primary-800 mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Mental Health
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://www.youtube.com/watch?v=inpok4MKVLM" class="text-primary-600 hover:text-primary-800 transition">5-minute meditation exercises</a></li>
+                        <li><a href="#" class="text-primary-600 hover:text-primary-800 transition">Cognitive Behavioral Therapy techniques</a></li>
+                        <li><a href="#" class="text-primary-600 hover:text-primary-800 transition">Stress management strategies</a></li>
+                        <li><a href="#" class="text-primary-600 hover:text-primary-800 transition">Anxiety relief breathing patterns</a></li>
+                        <li><a href="#" class="text-primary-600 hover:text-primary-800 transition">Sleep improvement guide</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Physical Health Resources -->
+                <div class="glassmorphism p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold text-primary-800 mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        Physical Health
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://www.youtube.com/watch?v=AEPnYII8uSI" class="text-primary-600 hover:text-primary-800 transition">Desk-friendly stretches</a></li>
+                        <li><a href="#" class="text-primary-600 hover:text-primary-800 transition">Low-impact exercise routines</a></li>
+                        <li><a href="#" class="text-primary-600 hover:text-primary-800 transition">Nutrition for mental clarity</a></li>
+                        <li><a href="#" class="text-primary-600 hover:text-primary-800 transition">Posture improvement exercises</a></li>
+                        <li><a href="#" class="text-primary-600 hover:text-primary-800 transition">Energy-boosting foods</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-primary-800 mb-12">What People Are Saying</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glassmorphism p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-primary-600 font-semibold">JD</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Yash Sehgal</h4>
+                            <p class="text-sm text-gray-500">Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The AI chatbot recognized my stress patterns before I did. The resources it suggested helped me manage my workload anxiety significantly."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="glassmorphism p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-primary-600 font-semibold">MS</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Shivanshu Sharma</h4>
+                            <p class="text-sm text-gray-500">Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Our residents love the mood tracker. It's helped us identify when certain individuals need extra support, improving our care quality."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="glassmorphism p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-primary-600 font-semibold">TP</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Sanskar Jaiswal</h4>
+                            <p class="text-sm text-gray-500">Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Implementing Harmony in our workplace reduced sick days by 22%. The personalized approach makes all the difference."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal Section -->
+    <section id="journal" class="py-20 px-6 bg-white bg-opacity-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-primary-800 mb-4">Mindfulness Journal</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Document your thoughts, feelings, and progress in your personal digital journal.</p>
+            
+            <div class="glassmorphism p-6 rounded-xl max-w-3xl mx-auto">
+                <div class="mb-6">
+                    <label for="journalDate" class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                    <input type="date" id="journalDate" class="w-full p-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div class="mb-6">
+                    <label for="journalMood" class="block text-sm font-medium text-gray-700 mb-1">Current Mood</label>
+                    <select id="journalMood" class="w-full p-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                        <option value="happy">😊 Happy</option>
+                        <option value="neutral">😐 Neutral</option>
+                        <option value="sad">😔 Sad</option>
+                        <option value="anxious">😟 Anxious</option>
+                        <option value="angry">😠 Angry</option>
+                        <option value="excited">🤩 Excited</option>
+                    </select>
+                </div>
+                <div class="mb-6">
+                    <label for="journalEntry" class="block text-sm font-medium text-gray-700 mb-1">Journal Entry</label>
+                    <textarea id="journalEntry" rows="6" class="w-full p-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500" placeholder="Write about your day, your feelings, or anything on your mind..."></textarea>
+                </div>
+                <button id="saveJournal" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-full shadow-md transition">Save Entry</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-primary-800 mb-4">Advanced Technologies</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Our platform leverages cutting-edge technologies to deliver personalized wellness support.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tech 1 -->
+                <div class="glassmorphism p-6 rounded-xl text-center">
+                    <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary-800 mb-2">Natural Language Processing</h3>
+                    <p class="text-gray-600">Advanced NLP analyzes conversation patterns to detect stress, anxiety, and other mental health indicators with high accuracy.</p>
+                </div>
+                
+                <!-- Tech 2 -->
+                <div class="glassmorphism p-6 rounded-xl text-center">
+                    <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary-800 mb-2">Adaptive Algorithms</h3>
+                    <p class="text-gray-600">Our system learns from each interaction to provide increasingly personalized recommendations and support.</p>
+                </div>
+                
+                <!-- Tech 3 -->
+                <div class="glassmorphism p-6 rounded-xl text-center">
+                    <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary-800 mb-2">Real-time Monitoring</h3>
+                    <p class="text-gray-600">Continuous wellbeing tracking enables timely interventions when users need support most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-800 text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:flex justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <span class="text-xl font-semibold text-primary-100">Swasthya Setu Solutions</span>
+                    </div>
+                    <p class="text-primary-200 max-w-xs">Inclusive, adaptable wellness solutions for workplaces and care homes.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-primary-100 font-semibold mb-4">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#features" class="text-primary-200 hover:text-white transition">Features</a></li>
+                            <li><a href="#assessment" class="text-primary-200 hover:text-white transition">Assessment</a></li>
+                            <li><a href="#resources" class="text-primary-200 hover:text-white transition">Resources</a></li>
+                            <li><a href="#journal" class="text-primary-200 hover:text-white transition">Journal</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-primary-100 font-semibold mb-4">Support</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-primary-200 hover:text-white transition">Help Center</a></li>
+                            <li><a href="#" class="text-primary-200 hover:text-white transition">Privacy Policy</a></li>
+                            <li><a href="#" class="text-primary-200 hover:text-white transition">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-primary-100 font-semibold mb-4">Contact</h3>
+                        <ul class="space-y-2">
+                            <li class="text-primary-200">cyberhack@gmail.com</li>
+                            <li class="text-primary-200">+919555167359</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-primary-700 mt-12 pt-8 text-center text-primary-300">
+                <p>&copy; 2025 Swasthya Setu Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Container -->
+    <div id="chatbotContainer" class="fixed bottom-6 right-6 w-96 max-w-full chatbot-container">
+        <div class="glassmorphism rounded-t-xl shadow-xl overflow-hidden">
+            <div class="bg-primary-600 text-white p-4 flex justify-between items-center">
+                <h3 class="font-semibold">Wellness Assistant</h3>
+                <button id="closeChatbot" class="text-white hover:text-primary-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+            <div id="chatbotMessages" class="p-4 h-80 overflow-y-auto bg-white bg-opacity-50">
+                <div class="flex mb-4">
+                    <div class="bg-primary-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="bg-primary-100 text-primary-800 p-3 rounded-xl max-w-xs">
+                        <p>Hello! I'm your wellness assistant. How are you feeling today?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t border-gray-200 bg-white bg-opacity-75">
+                <div class="flex">
+                    <input id="chatbotInput" type="text" placeholder="Type your message..." class="flex-1 p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-primary-500">
+                    <button id="sendMessage" class="bg-primary-500 hover:bg-primary-600 text-white px-4 rounded-r-md transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOS Modal -->
+    <div id="sosModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4">
+            <div class="text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-red-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <h3 class="text-xl font-semibold mb-2">We're Concerned About You</h3>
+                <p class="text-gray-600 mb-6">Our system has detected that you might be experiencing significant distress. Please consider reaching out for support.</p>
+                <div class="space-y-3">
+                    <a href="https://www.crisistextline.org/" target="_blank" class="block bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md transition">Crisis Text Line</a>
+                    <a href="https://suicidepreventionlifeline.org/" target="_blank" class="block bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition">Suicide Prevention Lifeline</a>
+                    <button id="closeSosModal" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md transition mt-2">I'm Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Chatbot functionality
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const sendMessage = document.getElementById('sendMessage');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const sosModal = document.getElementById('sosModal');
+        const closeSosModal = document.getElementById('closeSosModal');
+
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.add('open');
+        });
+
+        closeChatbot.addEventListener('click', () => {
+            chatbotContainer.classList.remove('open');
+        });
+
+        sendMessage.addEventListener('click', sendChatMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendChatMessage();
+        });
+
+        closeSosModal.addEventListener('click', () => {
+            sosModal.classList.add('hidden');
+        });
+
+        function sendChatMessage() {
+            const message = chatbotInput.value.trim();
+            if (message === '') return;
+
+            // Add user message
+            addMessage(message, 'user');
+            chatbotInput.value = '';
+
+            // Simulate thinking
+            setTimeout(() => {
+                // Analyze message for stress indicators
+                const stressWords = ['stress', 'stressed', 'anxious', 'anxiety', 'depressed', 'sad', 'overwhelmed', 
+                                   'can\'t cope', 'help me', 'suicide', 'end it all', 'worthless', 'hopeless'];
+                const hasStress = stressWords.some(word => message.toLowerCase().includes(word));
+
+                if (hasStress) {
+                    // Show SOS modal
+                    sosModal.classList.remove('hidden');
+                    
+                    // Add bot response
+                    addMessage("I've noticed you might be experiencing some distress. I've shared some resources that might help. Would you like to talk more about what you're feeling?", 'bot');
+                    
+                    // In a real app, this would send a WhatsApp alert
+                    console.log("Sending WhatsApp alert to user about potential distress");
+                } else {
+                    // Default response
+                    const responses = [
+                        "I hear you. How has this been affecting your daily life?",
+                        "Thank you for sharing. Would you like me to suggest some resources that might help?",
+                        "I understand. Have you noticed any patterns in when you feel this way?",
+                        "That sounds challenging. What strategies have you tried to cope with this?",
+                        "I'm here to listen. Can you tell me more about what's been on your mind?"
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    addMessage(randomResponse, 'bot');
+                    
+                    // 30% chance to suggest a resource
+                    if (Math.random() < 0.3) {
+                        setTimeout(() => {
+                            const resources = [
+                                "Based on what you've shared, you might find this breathing exercise helpful: [5-4-3-2-1 Grounding Technique]",
+                                "I recommend trying a short mindfulness exercise. Would you like me to guide you through one?",
+                                "Here's an article that might be relevant to what you're experiencing: [Managing Daily Stress]"
+                            ];
+                            const randomResource = resources[Math.floor(Math.random() * resources.length)];
+                            addMessage(randomResource, 'bot');
+                        }, 1000);
+                    }
+                }
+            }, 1000);
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex mb-4 ${sender === 'user' ? 'justify-end' : ''}`;
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="bg-primary-500 text-white p-3 rounded-xl max-w-xs">
+                        <p>${text}</p>
+                    </div>
+                    <div class="bg-primary-100 rounded-full w-8 h-8 flex items-center justify-center ml-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="bg-primary-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="bg-primary-100 text-primary-800 p-3 rounded-xl max-w-xs">
+                        <p>${text}</p>
+                    </div>
+                `;
+            }
+            
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Self Assessment functionality
+        const startAssessment = document.getElementById('startAssessment');
+        const assessmentIntro = document.getElementById('assessmentIntro');
+        const assessmentQuestions = document.getElementById('assessmentQuestions');
+        const questionContainer = document.getElementById('questionContainer');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const nextQuestion = document.getElementById('nextQuestion');
+        const assessmentResults = document.getElementById('assessmentResults');
+        const severityLevel = document.getElementById('severityLevel');
+        const resourceSuggestions = document.getElementById('resourceSuggestions');
+
+        const allQuestions = [
+            {
+                question: "How often have you felt nervous or stressed in the past week?",
+                options: [
+                    "Not at all",
+                    "Occasionally",
+                    "Frequently",
+                    "Almost constantly"
+                ]
+            },
+            {
+                question: "How would you rate your sleep quality over the past week?",
+                options: [
+                    "Excellent",
+                    "Good",
+                    "Fair",
+                    "Poor"
+                ]
+            },
+            {
+                question: "How often have you felt joy or contentment in the past week?",
+                options: [
+                    "Very often",
+                    "Sometimes",
+                    "Rarely",
+                    "Not at all"
+                ]
+            },
+            {
+                question: "How difficult has it been to concentrate on tasks in the past week?",
+                options: [
+                    "Not difficult at all",
+                    "Somewhat difficult",
+                    "Very difficult",
+                    "Extremely difficult"
+                ]
+            },
+            {
+                question: "How often have you felt physically uncomfortable or in pain in the past week?",
+                options: [
+                    "Not at all",
+                    "Occasionally",
+                    "Frequently",
+                    "Almost constantly"
+                ]
+            },
+            {
+                question: "How supported do you feel by those around you?",
+                options: [
+                    "Very supported",
+                    "Somewhat supported",
+                    "Minimally supported",
+                    "Not supported at all"
+                ]
+            },
+            {
+                question: "How would you rate your energy levels over the past week?",
+                options: [
+                    "High energy",
+                    "Moderate energy",
+                    "Low energy",
+                    "Very low energy"
+                ]
+            },
+            {
+                question: "How often have you engaged in physical activity in the past week?",
+                options: [
+                    "Daily or almost daily",
+                    "A few times",
+                    "Once or twice",
+                    "Not at all"
+                ]
+            },
+            {
+                question: "How often have you felt overwhelmed by your responsibilities in the past week?",
+                options: [
+                    "Not at all",
+                    "Occasionally",
+                    "Frequently",
+                    "Almost constantly"
+                ]
+            },
+            {
+                question: "How connected do you feel to others in your life?",
+                options: [
+                    "Very connected",
+                    "Somewhat connected",
+                    "Minimally connected",
+                    "Not connected at all"
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let selectedQuestions = [];
+        let answers = [];
+
+        // Select 5 random questions
+        function selectRandomQuestions() {
+            const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, 5);
+        }
+
+        startAssessment.addEventListener('click', () => {
+            selectRandomQuestions();
+            assessmentIntro.classList.add('hidden');
+            assessmentQuestions.classList.remove('hidden');
+            showQuestion(0);
+        });
+
+        nextQuestion.addEventListener('click', () => {
+            const selectedOption = document.querySelector('input[name="assessmentOption"]:checked');
+            if (!selectedOption) {
+                alert('Please select an option');
+                return;
+            }
+
+            answers.push(parseInt(selectedOption.value));
+            
+            if (currentQuestion < selectedQuestions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        });
+
+        
+        
+
+        function showQuestion(index) {
+            const question = selectedQuestions[index];
+            questionContainer.innerHTML = `<p class="font-medium">${question.question}</p>`;
+            
+            optionsContainer.innerHTML = '';
+            question.options.forEach((option, i) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'flex items-center';
+                optionDiv.innerHTML = `
+                    <input type="radio" id="option${i}" name="assessmentOption" value="${i}" class="mr-2">
+                    <label for="option${i}">${option}</label>
+                `;
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            if (index === selectedQuestions.length - 1) {
+                nextQuestion.textContent = 'See Results';
+            } else {
+                nextQuestion.textContent = 'Next Question';
+            }
+        }
+
+        function showResults() {
+            assessmentQuestions.classList.add('hidden');
+            assessmentResults.classList.remove('hidden');
+            
+            // Calculate score (0-3 scale for each question, total 0-15)
+            const totalScore = answers.reduce((sum, answer) => sum + answer, 0);
+            let severity, suggestion;
+            
+            if (totalScore <= 5) {
+                severity = "Your assessment suggests you're generally doing well.";
+                suggestion = "Consider maintaining your current habits and exploring our resources for continued wellbeing.";
+            } else if (totalScore <= 10) {
+                severity = "Your assessment suggests some areas of mild concern.";
+                suggestion = "Our resources for stress management and self-care might be particularly helpful for you.";
+            } else {
+                severity = "Your assessment suggests significant areas of concern.";
+                suggestion = "We strongly recommend exploring our support resources and considering reaching out to a professional for additional support.";
+            }
+            
+            severityLevel.innerHTML = `
+                <div class="bg-${totalScore > 10 ? 'red' : totalScore > 5 ? 'yellow' : 'green'}-100 text-${totalScore > 10 ? 'red' : totalScore > 5 ? 'yellow' : 'green'}-800 p-4 rounded-lg mb-4">
+                    <p>${severity}</p>
+                </div>
+            `;
+            
+            resourceSuggestions.innerHTML = `
+                <p class="mb-2">${suggestion}</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><a href="https://www.youtube.com/watch?v=inpok4MKVLM" class="text-primary-600 hover:text-primary-800">Guided meditation exercises</a></li>
+                    <li><a href="#" class="text-primary-600 hover:text-primary-800">Stress reduction techniques</a></li>
+                    <li><a href="#" class="text-primary-600 hover:text-primary-800">Sleep improvement guide</a></li>
+                    ${totalScore > 5 ? '<li><a href="#" class="text-primary-600 hover:text-primary-800">Professional support options</a></li>' : ''}
+                </ul>
+            `;
+        }
+
+        // Mood Tracker Chart
+        const moodChartCtx = document.getElementById('moodChart').getContext('2d');
+        const moodChart = new Chart(moodChartCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Mood Level',
+                    data: [3, 2, 4, 3, 2, 1, 3],
+                    backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                    borderColor: 'rgba(14, 165, 233, 1)',
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5,
+                        ticks: {
+                            callback: function(value) {
+                                const moods = ['Very Low', 'Low', 'Neutral', 'Good', 'Very Good'];
+                                return moods[value-1] || '';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Journal functionality
+        const saveJournal = document.getElementById('saveJournal');
+        saveJournal.addEventListener('click', () => {
+            const date = document.getElementById('journalDate').value;
+            const mood = document.getElementById('journalMood').value;
+            const entry = document.getElementById('journalEntry').value;
+            
+            if (!date || !entry) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // In a real app, this would save to a database
+            console.log('Journal entry saved:', { date, mood, entry });
+            alert('Journal entry saved successfully!');
+            
+            // Clear fields
+            document.getElementById('journalDate').value = '';
+            document.getElementById('journalMood').value = 'happy';
+            document.getElementById('journalEntry').value = '';
+        });
+
+        // Set today's date as default
+        document.getElementById('journalDate').valueAsDate = new Date();
+
+        function sendChatMessage() {
+    const message = chatbotInput.value.trim();
+    if (message === '') return;
+
+    // Add user message
+    addMessage(message, 'user');
+    chatbotInput.value = '';
+    
+    // Show typing indicator
+    const typingIndicator = document.createElement('div');
+    typingIndicator.id = 'typingIndicator';
+    typingIndicator.className = 'flex mb-4';
+    typingIndicator.innerHTML = `
+        <div class="bg-primary-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+            </svg>
+        </div>
+        <div class="bg-primary-100 text-primary-800 p-3 rounded-xl max-w-xs">
+            <p><span class="typing-dot">.</span><span class="typing-dot">.</span><span class="typing-dot">.</span></p>
+        </div>
+    `;
+    chatbotMessages.appendChild(typingIndicator);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+    // Analyze message for stress indicators to decide if we need to show SOS modal
+    const stressWords = ['suicide', 'kill myself', 'end my life', 'don\'t want to live'];
+    const hasAcuteStress = stressWords.some(word => message.toLowerCase().includes(word));
+
+    if (hasAcuteStress) {
+        // Show SOS modal for acute distress indicators
+        sosModal.classList.remove('hidden');
+        
+        // Remove typing indicator
+        document.getElementById('typingIndicator')?.remove();
+        
+        // Add bot response for crisis
+        addMessage("I'm concerned about what you've shared. I've provided some immediate resources that might help. Would you like to talk more about how you're feeling? Remember that speaking with a trained professional can be very helpful during difficult times.", 'bot');
+        
+        // In a real app, this would send a WhatsApp alert
+        console.log("Sending WhatsApp alert to user about potential crisis");
+        return;
+    }
+
+    // Call Gemini API
+}
+
+// Enhanced chatbot functionality with premade replies
+function sendChatMessage() {
+    const message = chatbotInput.value.trim();
+    if (message === '') return;
+
+    // Add user message
+    addMessage(message, 'user');
+    chatbotInput.value = '';
+    
+    // Show typing indicator
+    const typingIndicator = document.createElement('div');
+    typingIndicator.id = 'typingIndicator';
+    typingIndicator.className = 'flex mb-4';
+    typingIndicator.innerHTML = `
+        <div class="bg-primary-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+            </svg>
+        </div>
+        <div class="bg-primary-100 text-primary-800 p-3 rounded-xl max-w-xs">
+            <p><span class="typing-dot">.</span><span class="typing-dot">.</span><span class="typing-dot">.</span></p>
+        </div>
+    `;
+    chatbotMessages.appendChild(typingIndicator);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    
+    // Check for acute distress indicators first
+    const stressWords = ['suicide', 'kill myself', 'end my life', 'don\'t want to live'];
+    const hasAcuteStress = stressWords.some(word => message.toLowerCase().includes(word));
+
+    if (hasAcuteStress) {
+        // Show SOS modal for acute distress indicators
+        setTimeout(() => {
+            document.getElementById('typingIndicator')?.remove();
+            sosModal.classList.remove('hidden');
+            addMessage("I'm concerned about what you've shared. I've provided some immediate resources that might help. Would you like to talk more about how you're feeling? Remember that speaking with a trained professional can be very helpful during difficult times.", 'bot');
+            // In a real app, this would send a WhatsApp alert
+            console.log("Sending WhatsApp alert to user about potential crisis");
+        }, 1500);
+        return;
+    }
+    
+    // Define premade replies
+    const premadeReplies = {
+        // General greetings and wellness inquiries
+        "hello": "Hello! How are you feeling today?",
+        "hi": "Hi there! How can I support your wellness journey today?",
+        "hey": "Hey! How's your day going so far?",
+        "how are you": "I'm here and ready to help! More importantly, how are you feeling today?",
+        
+        // Mental health questions
+        "i feel sad": "I'm sorry to hear you're feeling sad. Would you like to explore some mood-lifting activities, or would it help to talk more about what's making you feel this way?",
+        "i'm anxious": "Anxiety can be challenging. Would you like to try a quick breathing exercise to help calm your mind? Or perhaps I can suggest some resources on managing anxiety?",
+        "i'm stressed": "I understand stress can be overwhelming. Would you like to discuss some stress management techniques or try a short guided relaxation exercise?",
+        "i can't sleep": "Sleep difficulties can affect your overall wellbeing. Would you like some tips for improving your sleep quality? Our sleep improvement guide might be helpful.",
+        "i feel lonely": "Feeling lonely can be difficult. Would you like some suggestions for connecting with others or activities that might help reduce feelings of isolation?",
+        
+        // Physical health questions
+        "back pain": "Back pain can be challenging to deal with. Would you like some gentle stretches that might help, or information about when to seek professional care?",
+        "headache": "I'm sorry you're experiencing a headache. Would you like some suggestions for potential relief? Remember, persistent headaches should be discussed with a healthcare provider.",
+        "tired all the time": "Persistent fatigue can have many causes. Would you like to explore some energy-boosting techniques or discuss factors that might be contributing to your tiredness?",
+        "exercise recommendations": "Regular physical activity is great for both mental and physical health! Would you like some low-impact exercise suggestions or information about establishing a sustainable routine?",
+        
+        // App-related questions
+        "how does the assessment work": "Our self-assessment consists of 5 randomly selected questions that evaluate different aspects of your wellbeing. Based on your answers, we provide tailored recommendations and resources.",
+        "what is mood tracking": "Our mood tracker helps you visualize your emotional patterns over 7 days. Tracking your mood can help identify trends and triggers, making it easier to manage your emotional wellbeing.",
+        "journal benefits": "Journaling helps process emotions, reduce stress, and gain insights into your thoughts and feelings. Our digital journal feature lets you record your experiences and track your wellbeing journey.",
+        "privacy": "Your privacy is important to us. All your journal entries and assessment results are securely stored and not shared with third parties. You have complete control over your data.",
+        
+        // Resources questions
+        "meditation resources": "We offer several meditation resources including 5-minute guided sessions, breathing exercises, and progressive relaxation techniques. Would you like me to share a specific type?",
+        "stress management": "Our stress management resources include breathing techniques, mindfulness exercises, and practical strategies for managing stressors. Would you like to explore any of these?",
+        "nutrition advice": "Good nutrition can significantly impact your mental wellbeing. We have resources on energy-boosting foods, mood-supporting nutrients, and simple meal planning. Which interests you most?",
+        
+        // Help requests
+        "help": "I'm here to help! Would you like support with stress management, sleep improvement, exercise recommendations, or something else?",
+        "i need advice": "I'd be happy to offer guidance. What area of your wellbeing are you looking for advice on?",
+        "resources": "We have resources on mental health, physical wellbeing, sleep improvement, nutrition, and relaxation techniques. Which area would you like to explore?"
+    };
+    
+    // Modified stress indicators for regular responses (less acute than suicide)
+    const moderateStressWords = ['stress', 'stressed', 'anxious', 'anxiety', 'depressed', 'sad', 'overwhelmed', 
+                             'can\'t cope', 'help me', 'worthless', 'hopeless'];
+    const hasModerateStress = moderateStressWords.some(word => message.toLowerCase().includes(word));
+    
+    // Look for matching premade replies
+    let botResponse = null;
+    const normalizedMessage = message.toLowerCase();
+    
+    // Check for exact matches first
+    if (premadeReplies[normalizedMessage]) {
+        botResponse = premadeReplies[normalizedMessage];
+    } else {
+        // Check for partial matches
+        for (const key in premadeReplies) {
+            if (normalizedMessage.includes(key)) {
+                botResponse = premadeReplies[key];
+                break;
+            }
+        }
+    }
+    
+    // If no premade reply was found
+    if (!botResponse) {
+        // Check for stress indicators
+        if (hasModerateStress) {
+            botResponse = "I've noticed you might be experiencing some distress. Would you like me to suggest some resources that might help, or would you prefer to talk more about what you're feeling?";
+        } else {
+            // Default responses if no match found
+            const defaultResponses = [
+                "I hear you. How has this been affecting your daily life?",
+                "Thank you for sharing. Would you like me to suggest some resources that might help?",
+                "I understand. Have you noticed any patterns in when you feel this way?",
+                "That sounds challenging. What strategies have you tried so far?",
+                "I'm here to listen. Can you tell me more about what's on your mind?"
+            ];
+            botResponse = defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+        }
+    }
+    
+    // Send the response after a delay to simulate thinking
+    setTimeout(() => {
+        document.getElementById('typingIndicator')?.remove();
+        addMessage(botResponse, 'bot');
+        
+        // For stress-related responses, maybe suggest a resource as a follow-up
+        if (hasModerateStress && Math.random() < 0.7) {
+            setTimeout(() => {
+                const resources = [
+                    "Based on what you've shared, you might find our 5-minute meditation exercise helpful. Would you like me to share it with you?",
+                    "I recommend trying the 5-4-3-2-1 grounding technique when you're feeling this way. Would you like me to explain how it works?",
+                    "Our guided progressive muscle relaxation might help with what you're experiencing. Would you like to try it?",
+                    "Many people find journaling helpful when dealing with similar feelings. Have you tried using our journal feature?",
+                    "Would you be interested in checking your overall wellbeing with our self-assessment tool?"
+                ];
+                const randomResource = resources[Math.floor(Math.random() * resources.length)];
+                addMessage(randomResource, 'bot');
+            }, 2000);
+        }
+        
+        // For general conversations, occasionally suggest exploring a feature (20% chance)
+        else if (Math.random() < 0.2) {
+            setTimeout(() => {
+                const suggestions = [
+                    "Have you tried our self-assessment tool yet? It might give you some helpful insights.",
+                    "Tracking your mood can reveal interesting patterns. Would you like to learn more about our mood tracking feature?",
+                    "Journaling can be a great way to process thoughts and feelings. Our journal feature makes it easy to get started.",
+                    "We have a variety of resources that might support your wellbeing journey. Would you like me to tell you about them?"
+                ];
+                const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+                addMessage(randomSuggestion, 'bot');
+            }, 2000);
+        }
+    }, 1500);
+}
+    </script>
+</body>
+</html>

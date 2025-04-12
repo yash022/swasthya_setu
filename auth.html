@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swasthya Setu
+ - Account Management</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e0f2fe 0%, #bae6fd 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .form-container {
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .message {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+            border-radius: 6px;
+        }
+        
+        .error-message {
+            background-color: #FEE2E2;
+            color: #B91C1C;
+            border: 1px solid #F87171;
+        }
+        
+        .success-message {
+            background-color: #D1FAE5;
+            color: #065F46;
+            border: 1px solid #34D399;
+        }
+        
+        .tab-button {
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: currentColor;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .notification-banner {
+            background-color: #EFF6FF;
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3B82F6;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+    <div class="form-container bg-white p-8 rounded-lg">
+        <!-- Logo -->
+        <div class="logo-container mb-6">
+            <div class="flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <h1 class="text-2xl font-bold ml-2 text-gray-800">Swasthya Setu
+</h1>
+            </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="flex border-b mb-6">
+            <button id="loginTab" class="tab-button w-1/2 py-3 text-center font-medium text-gray-500 border-b-2 border-transparent">Login</button>
+            <button id="signupTab" class="tab-button w-1/2 py-3 text-center font-medium text-blue-600 border-b-2 border-blue-600">Signup</button>
+        </div>
+        
+        <!-- Login Form -->
+        <div id="loginForm" class="hidden">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Welcome Back</h2>
+            <div id="signInMessage" class="message py-2 px-4 mb-4 rounded"></div>
+            <form id="login-form">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                    <input class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="email" name="email" type="email" placeholder="email@example.com" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+                    <input class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="password" name="password" type="password" placeholder="••••••••" required>
+                </div>
+                <button id="submitSignIn" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline w-full transition duration-200" type="submit">
+                    Sign In
+                </button>
+            </form>
+            <div class="mt-6 text-center">
+                <p class="text-gray-600">Don't have an account? <button id="switchToSignup" class="text-blue-600 font-medium hover:underline">Sign up</button></p>
+            </div>
+        </div>
+        
+        <!-- Signup Form -->
+        <div id="signupForm" class="fade-in">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Create Account</h2>
+            
+            <div class="notification-banner mb-6">
+                <p class="text-sm text-blue-800">Account creation will be implemented with Firebase</p>
+            </div>
+            
+            <div id="signUpMessage" class="message py-2 px-4 mb-4 rounded"></div>
+            <form id="signup-form">
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="fName">First Name</label>
+                        <input class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="fName" name="fName" type="text" placeholder="First Name" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="lName">Last Name</label>
+                        <input class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="lName" name="lName" type="text" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="rEmail">Email</label>
+                    <input class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="rEmail" name="rEmail" type="email" placeholder="email@example.com" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="rPassword">Password</label>
+                    <input class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="rPassword" name="rPassword" type="password" placeholder="••••••••" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmPassword">Confirm Password</label>
+                    <input class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="confirmPassword" name="confirmPassword" type="password" placeholder="••••••••" required>
+                </div>
+                <button id="submitSignUp" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline w-full transition duration-200" type="submit">
+                    Create Account
+                </button>
+            </form>
+            <div class="mt-6 text-center">
+                <p class="text-gray-600">Already have an account? <button id="switchToLogin" class="text-blue-600 font-medium hover:underline">Sign in</button></p>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+        import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDmEMj5A5ae5qn6e2_1-cEtVUfFgoeSpPI",
+            authDomain: "cyberhackdatabase.firebaseapp.com",
+            projectId: "cyberhackdatabase",
+            storageBucket: "cyberhackdatabase.appspot.com",
+            messagingSenderId: "91832053616",
+            appId: "1:91832053616:web:cb2d5db1529b370d3da9b5",
+            measurementId: "G-MBFHWBKYRM"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        console.log("Firebase initialized", app);
+
+        function showMessage(message, divId, isError = true) {
+            var messageDiv = document.getElementById(divId);
+            messageDiv.style.display = "block";
+            messageDiv.innerHTML = message;
+            
+            if (isError) {
+                messageDiv.classList.add('error-message');
+                messageDiv.classList.remove('success-message');
+            } else {
+                messageDiv.classList.add('success-message');
+                messageDiv.classList.remove('error-message');
+            }
+            
+            messageDiv.style.opacity = 1;
+            setTimeout(function() {
+                messageDiv.style.opacity = 0;
+            }, 5000);
+        }
+
+        // Get elements
+        const loginTab = document.getElementById('loginTab');
+        const signupTab = document.getElementById('signupTab');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const switchToLogin = document.getElementById('switchToLogin');
+        const switchToSignup = document.getElementById('switchToSignup');
+
+        // Tab switching functions
+        function showLoginForm() {
+            loginTab.classList.remove('text-gray-500', 'border-transparent');
+            loginTab.classList.add('text-blue-600', 'border-blue-600');
+            signupTab.classList.remove('text-blue-600', 'border-blue-600');
+            signupTab.classList.add('text-gray-500', 'border-transparent');
+            
+            loginForm.classList.remove('hidden');
+            loginForm.classList.add('fade-in');
+            signupForm.classList.add('hidden');
+            signupForm.classList.remove('fade-in');
+        }
+
+        function showSignupForm() {
+            signupTab.classList.remove('text-gray-500', 'border-transparent');
+            signupTab.classList.add('text-blue-600', 'border-blue-600');
+            loginTab.classList.remove('text-blue-600', 'border-blue-600');
+            loginTab.classList.add('text-gray-500', 'border-transparent');
+            
+            signupForm.classList.remove('hidden');
+            signupForm.classList.add('fade-in');
+            loginForm.classList.add('hidden');
+            loginForm.classList.remove('fade-in');
+        }
+
+        // Add event listeners for tab switching
+        loginTab.addEventListener('click', showLoginForm);
+        signupTab.addEventListener('click', showSignupForm);
+        switchToLogin.addEventListener('click', showLoginForm);
+        switchToSignup.addEventListener('click', showSignupForm);
+
+        // Sign Up functionality
+        const signupFormElement = document.getElementById('signup-form');
+        signupFormElement.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const email = document.getElementById('rEmail').value;
+            const password = document.getElementById('rPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const firstName = document.getElementById('fName').value;
+            const lastName = document.getElementById('lName').value;
+            
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match!', 'signUpMessage', true);
+                return;
+            }
+            
+            const signUp = document.getElementById('submitSignUp');
+            signUp.disabled = true;
+            signUp.textContent = 'Creating Account...';
+            signUp.classList.add('bg-blue-400');
+            signUp.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+            
+            try {
+                console.log("Creating user account...");
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                console.log("User created:", user.uid);
+                
+                const userData = {
+                    email: email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    createdAt: new Date().toISOString()
+                };
+                
+                try {
+                    const docRef = doc(db, "users", user.uid);
+                    await setDoc(docRef, userData);
+                    console.log("User data saved");
+                    
+                    showMessage('Account Created Successfully!', 'signUpMessage', false);
+                    signupFormElement.reset();
+                    
+                    setTimeout(() => {
+                        showLoginForm();
+                    }, 1500);
+                } catch (firestoreError) {
+                    console.error("Firestore error:", firestoreError);
+                    showMessage('Account created but profile setup failed', 'signUpMessage', true);
+                }
+            } catch (authError) {
+                console.error("Auth error:", authError);
+                
+                const errorCode = authError.code;
+                if (errorCode === 'auth/email-already-in-use') {
+                    showMessage('Email Address Already Exists!', 'signUpMessage', true);
+                }
+                else if (errorCode === 'auth/weak-password') {
+                    showMessage('Password is too weak. Use at least 6 characters.', 'signUpMessage', true);
+                }
+                else {
+                    showMessage('Account creation failed: ' + authError.message, 'signUpMessage', true);
+                }
+            } finally {
+                signUp.disabled = false;
+                signUp.textContent = 'Create Account';
+                signUp.classList.remove('bg-blue-400');
+                signUp.classList.add('bg-blue-500', 'hover:bg-blue-600');
+            }
+        });
+
+        // Sign In functionality
+        const loginFormElement = document.getElementById('login-form');
+        loginFormElement.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const signIn = document.getElementById('submitSignIn');
+            signIn.disabled = true;
+            signIn.textContent = 'Signing In...';
+            signIn.classList.add('bg-blue-400');
+            signIn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+            
+            try {
+                console.log("Attempting sign in...");
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                console.log("Sign in successful:", userCredential.user.uid);
+                
+                showMessage('Login successful! Redirecting...', 'signInMessage', false);
+                localStorage.setItem('loggedInUserId', userCredential.user.uid);
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            } catch (error) {
+                console.error("Login error:", error);
+                
+                const errorCode = error.code;
+                if (errorCode === 'auth/invalid-credential') {
+                    showMessage('Incorrect Email or Password', 'signInMessage', true);
+                }
+                else if (errorCode === 'auth/user-not-found') {
+                    showMessage('No account found with this email', 'signInMessage', true);
+                }
+                else if (errorCode === 'auth/too-many-requests') {
+                    showMessage('Too many failed login attempts. Please try again later.', 'signInMessage', true);
+                }
+                else {
+                    showMessage('Login Error: ' + error.message, 'signInMessage', true);
+                }
+            } finally {
+                signIn.disabled = false;
+                signIn.textContent = 'Sign In';
+                signIn.classList.remove('bg-blue-400');
+                signIn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+            }
+        });
+
+        // Default to signup form on page load to match screenshot
+        showSignupForm();
+    </script>
+</body>
+</html>
